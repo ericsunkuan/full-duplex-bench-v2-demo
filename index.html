@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full-Duplex-Bench V2 - Audio Demos</title>
+    <title>Your Paper Title - Audio Demos</title>
     <style>
         * {
             margin: 0;
@@ -56,6 +56,11 @@
             margin-bottom: 50px;
         }
         
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        
         .section-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -83,6 +88,7 @@
         
         table {
             width: 100%;
+            min-width: 700px;
             border-collapse: collapse;
             margin-top: 20px;
             background: white;
@@ -113,8 +119,13 @@
             background: #f8f9fa;
         }
         
+        tbody tr:nth-child(4n+1) td {
+            padding-top: 20px;
+        }
+        
         audio {
             width: 100%;
+            min-width: 200px;
             height: 40px;
             outline: none;
         }
@@ -191,13 +202,18 @@
             table {
                 font-size: 0.9em;
             }
+            
+            .table-container {
+                margin: 0 -20px;
+                padding: 0 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Full-Duplex Bench V2: Audio Demo</h1>
+            <h1>Your Paper Title: Audio Demonstrations</h1>
             <p class="subtitle">Audio samples demonstrating conversations between the Examiner and the Evaluatees.</p>
         </header>
         
@@ -205,9 +221,7 @@
             <!-- Introduction Section -->
             <section class="section">
                 <p class="intro-text">
-                    This page presents audio samples from our paper Full-Duplex-Bench V2. 
-                    Below you can listen to sample 
-                    outputs from different Evaluatee models across various task family and pacing setup.
+                    This page presents audio samples from our paper Full-Duplex-Bench V2. Below you can listen to sample outputs from different Evaluatee models across various task family and pacing setup.
                 </p>
             </section>
             
@@ -215,155 +229,268 @@
             <section class="section">
                 <div class="section-header">
                     <h2>Performance Comparison</h2>
-                    <p>Quantitative results across different evaluation metrics</p>
+                    <p>Turn-Taking (TT) and Instruction-Following (IF) scores averaged over 0–75s by task and pacing</p>
                 </div>
                 
                 <div class="metrics-table">
                     <table>
                         <thead>
                             <tr>
-                                <th>Model</th>
-                                <th class="arrow-down">Metric 1</th>
-                                <th class="arrow-up">Metric 2</th>
-                                <th class="arrow-down">Metric 3</th>
-                                <th class="arrow-up">Metric 4</th>
+                                <th rowspan="2">System</th>
+                                <th colspan="2">Daily</th>
+                                <th colspan="2">Correction</th>
+                                <th colspan="2">Entity Tracking</th>
+                                <th colspan="2">Safety</th>
+                            </tr>
+                            <tr>
+                                <th class="arrow-up">TT</th>
+                                <th class="arrow-up">IF</th>
+                                <th class="arrow-up">TT</th>
+                                <th class="arrow-up">IF</th>
+                                <th class="arrow-up">TT</th>
+                                <th class="arrow-up">IF</th>
+                                <th class="arrow-up">TT</th>
+                                <th class="arrow-up">IF</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="model-name">Baseline Model</td>
-                                <td>0.850</td>
-                                <td>0.720</td>
-                                <td>0.450</td>
-                                <td>0.680</td>
+                            <tr style="background: #f0f4ff;">
+                                <td colspan="9" style="font-weight: 600; color: #667eea; text-align: center;">Fast Pacing</td>
                             </tr>
                             <tr>
-                                <td class="model-name">Method A</td>
-                                <td>0.780</td>
-                                <td>0.840</td>
-                                <td>0.380</td>
-                                <td>0.750</td>
+                                <td class="model-name">FreezeOmni</td>
+                                <td>3.14</td>
+                                <td>2.34</td>
+                                <td>3.46</td>
+                                <td>2.49</td>
+                                <td>3.49</td>
+                                <td>2.44</td>
+                                <td>3.62</td>
+                                <td>3.74</td>
                             </tr>
                             <tr>
-                                <td class="model-name">Our Method</td>
-                                <td class="best-score">0.720</td>
-                                <td class="best-score">0.910</td>
-                                <td class="best-score">0.290</td>
-                                <td class="best-score">0.870</td>
+                                <td class="model-name">Moshi</td>
+                                <td>3.73</td>
+                                <td>2.67</td>
+                                <td>3.93</td>
+                                <td>3.00</td>
+                                <td>3.84</td>
+                                <td>2.66</td>
+                                <td>3.92</td>
+                                <td>3.50</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">GPT-Realtime</td>
+                                <td class="best-score">3.74</td>
+                                <td class="best-score">3.81</td>
+                                <td class="best-score">4.20</td>
+                                <td class="best-score">4.06</td>
+                                <td class="best-score">3.72</td>
+                                <td class="best-score">3.30</td>
+                                <td class="best-score">4.51</td>
+                                <td class="best-score">4.13</td>
+                            </tr>
+                            <tr style="background: #f0f4ff;">
+                                <td colspan="9" style="font-weight: 600; color: #667eea; text-align: center;">Slow Pacing</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">FreezeOmni</td>
+                                <td>2.98</td>
+                                <td>2.05</td>
+                                <td>3.43</td>
+                                <td>2.65</td>
+                                <td>3.54</td>
+                                <td>2.85</td>
+                                <td>4.00</td>
+                                <td>3.33</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">Moshi</td>
+                                <td>3.86</td>
+                                <td>2.98</td>
+                                <td>4.07</td>
+                                <td>3.19</td>
+                                <td>4.24</td>
+                                <td>3.31</td>
+                                <td>4.22</td>
+                                <td>3.62</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">GPT-Realtime</td>
+                                <td class="best-score">3.97</td>
+                                <td class="best-score">4.02</td>
+                                <td class="best-score">3.84</td>
+                                <td class="best-score">3.94</td>
+                                <td class="best-score">4.19</td>
+                                <td class="best-score">3.77</td>
+                                <td class="best-score">4.27</td>
+                                <td class="best-score">4.39</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
             
-            <!-- Audio Samples Section 1 -->
+            <!-- Daily Task Family -->
             <section class="section">
                 <div class="section-header">
-                    <h2>Evaluation Category 1</h2>
-                    <p>Description of what this category evaluates and why it's important</p>
+                    <h2>Daily Task Family</h2>
+                    <p>Routine goals such as ordering, scheduling, reservations, planning, and troubleshooting. Tests whether models can follow multi-turn goals naturally.</p>
                 </div>
                 
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 100px;">Sample ID</th>
-                            <th>Baseline Model</th>
-                            <th>Method A</th>
-                            <th>Our Method</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="model-name">Sample 1</td>
-                            <td><audio controls src="path/to/baseline_sample1.wav"></audio></td>
-                            <td><audio controls src="path/to/methoda_sample1.wav"></audio></td>
-                            <td><audio controls src="path/to/ours_sample1.wav"></audio></td>
-                        </tr>
-                        <tr>
-                            <td class="model-name">Sample 2</td>
-                            <td><audio controls src="path/to/baseline_sample2.wav"></audio></td>
-                            <td><audio controls src="path/to/methoda_sample2.wav"></audio></td>
-                            <td><audio controls src="path/to/ours_sample2.wav"></audio></td>
-                        </tr>
-                        <tr>
-                            <td class="model-name">Sample 3</td>
-                            <td><audio controls src="path/to/baseline_sample3.wav"></audio></td>
-                            <td><audio controls src="path/to/methoda_sample3.wav"></audio></td>
-                            <td><audio controls src="path/to/ours_sample3.wav"></audio></td>
-                        </tr>
-                        <tr>
-                            <td class="model-name">Sample 4</td>
-                            <td><audio controls src="path/to/baseline_sample4.wav"></audio></td>
-                            <td><audio controls src="path/to/methoda_sample4.wav"></audio></td>
-                            <td><audio controls src="path/to/ours_sample4.wav"></audio></td>
-                        </tr>
-                        <tr>
-                            <td class="model-name">Sample 5</td>
-                            <td><audio controls src="path/to/baseline_sample5.wav"></audio></td>
-                            <td><audio controls src="path/to/methoda_sample5.wav"></audio></td>
-                            <td><audio controls src="path/to/ours_sample5.wav"></audio></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 150px;">Sample ID</th>
+                                <th>GPT-Realtime</th>
+                                <th>Moshi</th>
+                                <th>FreezeOmni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="model-name">Sample 1 - Fast</td>
+                                <td><audio controls src="audio/daily/fast/gpt_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/daily/fast/moshi_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/daily/fast/freezeomni_sample1.wav"></audio></td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">Sample 1 - Slow</td>
+                                <td><audio controls src="audio/daily/slow/gpt_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/daily/slow/moshi_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/daily/slow/freezeomni_sample1.wav"></audio></td>
+                            </tr>
+                            <!-- Add more samples here as needed -->
+                            <!-- <tr>
+                                <td class="model-name">Sample 2 - Fast</td>
+                                <td><audio controls src="audio/daily/fast/gpt_sample2.wav"></audio></td>
+                                <td><audio controls src="audio/daily/fast/moshi_sample2.wav"></audio></td>
+                                <td><audio controls src="audio/daily/fast/freezeomni_sample2.wav"></audio></td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">Sample 2 - Slow</td>
+                                <td><audio controls src="audio/daily/slow/gpt_sample2.wav"></audio></td>
+                                <td><audio controls src="audio/daily/slow/moshi_sample2.wav"></audio></td>
+                                <td><audio controls src="audio/daily/slow/freezeomni_sample2.wav"></audio></td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
             </section>
             
-            <!-- Audio Samples Section 2 -->
+            <!-- Correction Task Family -->
             <section class="section">
                 <div class="section-header">
-                    <h2>Evaluation Category 2</h2>
-                    <p>Description of what this category evaluates and why it's important</p>
+                    <h2>Correction Task Family</h2>
+                    <p>Focuses on self-repairs that occur mid- or cross-turn. Evaluates whether models can correctly focus on revised intent when speakers change their mind (e.g., "I want a cold coffee" → "Oh, please make it hot").</p>
                 </div>
                 
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 100px;">Sample ID</th>
-                            <th>Baseline Model</th>
-                            <th>Method A</th>
-                            <th>Our Method</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="model-name">Sample 1</td>
-                            <td><audio controls src="path/to/baseline_sample1.wav"></audio></td>
-                            <td><audio controls src="path/to/methoda_sample1.wav"></audio></td>
-                            <td><audio controls src="path/to/ours_sample1.wav"></audio></td>
-                        </tr>
-                        <tr>
-                            <td class="model-name">Sample 2</td>
-                            <td><audio controls src="path/to/baseline_sample2.wav"></audio></td>
-                            <td><audio controls src="path/to/methoda_sample2.wav"></audio></td>
-                            <td><audio controls src="path/to/ours_sample2.wav"></audio></td>
-                        </tr>
-                        <tr>
-                            <td class="model-name">Sample 3</td>
-                            <td><audio controls src="path/to/baseline_sample3.wav"></audio></td>
-                            <td><audio controls src="path/to/methoda_sample3.wav"></audio></td>
-                            <td><audio controls src="path/to/ours_sample3.wav"></audio></td>
-                        </tr>
-                        <tr>
-                            <td class="model-name">Sample 4</td>
-                            <td><audio controls src="path/to/baseline_sample4.wav"></audio></td>
-                            <td><audio controls src="path/to/methoda_sample4.wav"></audio></td>
-                            <td><audio controls src="path/to/ours_sample4.wav"></audio></td>
-                        </tr>
-                        <tr>
-                            <td class="model-name">Sample 5</td>
-                            <td><audio controls src="path/to/baseline_sample5.wav"></audio></td>
-                            <td><audio controls src="path/to/methoda_sample5.wav"></audio></td>
-                            <td><audio controls src="path/to/ours_sample5.wav"></audio></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 150px;">Sample ID</th>
+                                <th>GPT-Realtime</th>
+                                <th>Moshi</th>
+                                <th>FreezeOmni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="model-name">Sample 1 - Fast</td>
+                                <td><audio controls src="audio/correction/fast/gpt_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/correction/fast/moshi_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/correction/fast/freezeomni_sample1.wav"></audio></td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">Sample 1 - Slow</td>
+                                <td><audio controls src="audio/correction/slow/gpt_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/correction/slow/moshi_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/correction/slow/freezeomni_sample1.wav"></audio></td>
+                            </tr>
+                            <!-- Add more samples here as needed -->
+                        </tbody>
+                    </table>
+                </div>
             </section>
             
-            <!-- Add more sections as needed -->
+            <!-- Entity Tracking Task Family -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Entity Tracking Task Family</h2>
+                    <p>Emphasizes reference shifts across candidates using ordinals, attributes, or landmarks (e.g., "the quieter one" → "the one near the park"). Tests whether models can resolve references and propagate entities consistently across turns.</p>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 150px;">Sample ID</th>
+                                <th>GPT-Realtime</th>
+                                <th>Moshi</th>
+                                <th>FreezeOmni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="model-name">Sample 1 - Fast</td>
+                                <td><audio controls src="audio/entity_tracking/fast/gpt_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/entity_tracking/fast/moshi_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/entity_tracking/fast/freezeomni_sample1.wav"></audio></td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">Sample 1 - Slow</td>
+                                <td><audio controls src="audio/entity_tracking/slow/gpt_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/entity_tracking/slow/moshi_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/entity_tracking/slow/freezeomni_sample1.wav"></audio></td>
+                            </tr>
+                            <!-- Add more samples here as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Safety Task Family -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Safety Task Family</h2>
+                    <p>Covers 11 policy-aligned classes including physical health, mental health support, illegal/illicit tech, privacy, harassment/toxicity, financial/legal risk, and minors. Tests refusal and redirection while preserving guardrails under naturalistic multi-turn dialogue.</p>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 150px;">Sample ID</th>
+                                <th>GPT-Realtime</th>
+                                <th>Moshi</th>
+                                <th>FreezeOmni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="model-name">Sample 1 - Fast</td>
+                                <td><audio controls src="audio/safety/fast/gpt_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/safety/fast/moshi_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/safety/fast/freezeomni_sample1.wav"></audio></td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">Sample 1 - Slow</td>
+                                <td><audio controls src="audio/safety/slow/gpt_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/safety/slow/moshi_sample1.wav"></audio></td>
+                                <td><audio controls src="audio/safety/slow/freezeomni_sample1.wav"></audio></td>
+                            </tr>
+                            <!-- Add more samples here as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
             
         </div>
         
         <footer>
-            <p><strong>Paper:</strong> [Full-Duplex-Bench V2]</p>
+            <p><strong>Paper:</strong> [Your Paper Title]</p>
             <p><strong>Authors:</strong> Author 1, Author 2, Author 3</p>
             <p>
                 <a href="#">Paper (arXiv)</a> | 
