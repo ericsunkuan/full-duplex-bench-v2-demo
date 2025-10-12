@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Paper Title - Audio Demos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .section-header h2 {
+            font-size: 1.8em;
+            margin-bottom: 8px;
+        }
+        
+        .section-header p {
+            opacity: 0.95;
+            font-size: 0.95em;
+        }
+        
+        .intro-text {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        audio {
+            width: 100%;
+            height: 40px;
+            outline: none;
+        }
+        
+        .model-name {
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .metrics-table {
+            overflow-x: auto;
+        }
+        
+        .metrics-table th,
+        .metrics-table td {
+            text-align: center;
+            white-space: nowrap;
+        }
+        
+        .metrics-table th:first-child,
+        .metrics-table td:first-child {
+            text-align: left;
+        }
+        
+        .best-score {
+            font-weight: bold;
+            color: #28a745;
+        }
+        
+        .arrow-up::after {
+            content: " ↑";
+            color: #6c757d;
+        }
+        
+        .arrow-down::after {
+            content: " ↓";
+            color: #6c757d;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Paper Title: Audio Demonstrations</h1>
+            <p class="subtitle">A comprehensive evaluation of [your method] with audio samples demonstrating [key capabilities]</p>
+        </header>
+        
+        <div class="content">
+            <!-- Introduction Section -->
+            <section class="section">
+                <p class="intro-text">
+                    This page presents audio samples from our paper "[Your Paper Title]". 
+                    We evaluate [your models/methods] on [your task/dataset] and demonstrate 
+                    improvements in [key metrics/capabilities]. Below you can listen to sample 
+                    outputs from different models across various test conditions.
+                </p>
+            </section>
+            
+            <!-- Performance Metrics Section -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Performance Comparison</h2>
+                    <p>Quantitative results across different evaluation metrics</p>
+                </div>
+                
+                <div class="metrics-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th class="arrow-down">Metric 1</th>
+                                <th class="arrow-up">Metric 2</th>
+                                <th class="arrow-down">Metric 3</th>
+                                <th class="arrow-up">Metric 4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="model-name">Baseline Model</td>
+                                <td>0.850</td>
+                                <td>0.720</td>
+                                <td>0.450</td>
+                                <td>0.680</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">Method A</td>
+                                <td>0.780</td>
+                                <td>0.840</td>
+                                <td>0.380</td>
+                                <td>0.750</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">Our Method</td>
+                                <td class="best-score">0.720</td>
+                                <td class="best-score">0.910</td>
+                                <td class="best-score">0.290</td>
+                                <td class="best-score">0.870</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Audio Samples Section 1 -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Evaluation Category 1</h2>
+                    <p>Description of what this category evaluates and why it's important</p>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 100px;">Sample ID</th>
+                            <th>Baseline Model</th>
+                            <th>Method A</th>
+                            <th>Our Method</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="model-name">Sample 1</td>
+                            <td><audio controls src="path/to/baseline_sample1.wav"></audio></td>
+                            <td><audio controls src="path/to/methoda_sample1.wav"></audio></td>
+                            <td><audio controls src="path/to/ours_sample1.wav"></audio></td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Sample 2</td>
+                            <td><audio controls src="path/to/baseline_sample2.wav"></audio></td>
+                            <td><audio controls src="path/to/methoda_sample2.wav"></audio></td>
+                            <td><audio controls src="path/to/ours_sample2.wav"></audio></td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Sample 3</td>
+                            <td><audio controls src="path/to/baseline_sample3.wav"></audio></td>
+                            <td><audio controls src="path/to/methoda_sample3.wav"></audio></td>
+                            <td><audio controls src="path/to/ours_sample3.wav"></audio></td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Sample 4</td>
+                            <td><audio controls src="path/to/baseline_sample4.wav"></audio></td>
+                            <td><audio controls src="path/to/methoda_sample4.wav"></audio></td>
+                            <td><audio controls src="path/to/ours_sample4.wav"></audio></td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Sample 5</td>
+                            <td><audio controls src="path/to/baseline_sample5.wav"></audio></td>
+                            <td><audio controls src="path/to/methoda_sample5.wav"></audio></td>
+                            <td><audio controls src="path/to/ours_sample5.wav"></audio></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- Audio Samples Section 2 -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Evaluation Category 2</h2>
+                    <p>Description of what this category evaluates and why it's important</p>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 100px;">Sample ID</th>
+                            <th>Baseline Model</th>
+                            <th>Method A</th>
+                            <th>Our Method</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="model-name">Sample 1</td>
+                            <td><audio controls src="path/to/baseline_sample1.wav"></audio></td>
+                            <td><audio controls src="path/to/methoda_sample1.wav"></audio></td>
+                            <td><audio controls src="path/to/ours_sample1.wav"></audio></td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Sample 2</td>
+                            <td><audio controls src="path/to/baseline_sample2.wav"></audio></td>
+                            <td><audio controls src="path/to/methoda_sample2.wav"></audio></td>
+                            <td><audio controls src="path/to/ours_sample2.wav"></audio></td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Sample 3</td>
+                            <td><audio controls src="path/to/baseline_sample3.wav"></audio></td>
+                            <td><audio controls src="path/to/methoda_sample3.wav"></audio></td>
+                            <td><audio controls src="path/to/ours_sample3.wav"></audio></td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Sample 4</td>
+                            <td><audio controls src="path/to/baseline_sample4.wav"></audio></td>
+                            <td><audio controls src="path/to/methoda_sample4.wav"></audio></td>
+                            <td><audio controls src="path/to/ours_sample4.wav"></audio></td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Sample 5</td>
+                            <td><audio controls src="path/to/baseline_sample5.wav"></audio></td>
+                            <td><audio controls src="path/to/methoda_sample5.wav"></audio></td>
+                            <td><audio controls src="path/to/ours_sample5.wav"></audio></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- Add more sections as needed -->
+            
+        </div>
+        
+        <footer>
+            <p><strong>Paper:</strong> [Your Paper Title]</p>
+            <p><strong>Authors:</strong> Author 1, Author 2, Author 3</p>
+            <p>
+                <a href="#">Paper (arXiv)</a> | 
+                <a href="#">Code (GitHub)</a> | 
+                <a href="#">Dataset</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.9em;">© 2025 - All audio samples are for research purposes only</p>
+        </footer>
+    </div>
+</body>
+</html>
