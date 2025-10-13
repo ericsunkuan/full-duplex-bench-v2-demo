@@ -133,14 +133,17 @@
         /* Transcript canvas styles */
         .transcript-box {
             margin-top: 8px;
-            max-height: 120px;            /* little scrollable canvas */
-            overflow: auto;
+            height: 140px; /* fixed height for reliable vertical scrolling */
+            overflow: auto; /* allow both axes */
+            overflow-x: auto;
+            overflow-y: auto;
             background: #f9fafb;
             border: 1px solid #e5e7eb;
             border-radius: 8px;
             padding: 10px;
             font-size: 0.9em;
             color: #374151;
+            scrollbar-gutter: stable both-edges; /* keep layout stable when scrollbars appear */
         }
         .transcript-title {
             font-size: 0.78rem;
@@ -150,10 +153,11 @@
             letter-spacing: .02em;
             margin-bottom: 6px;
         }
-        .transcript-turn { margin-bottom: 6px; }
+        .transcript-turn { margin-bottom: 6px; white-space: nowrap; }
         .transcript-turn .speaker { font-weight: 600; margin-right: 6px; color: #4f46e5; }
         .transcript-loading { font-style: italic; color: #6b7280; }
         .transcript-empty { font-style: italic; color: #9ca3af; }
+            .transcript-content { display: block; width: max-content; min-width: 100%; }
     </style>
 </head>
 <body>

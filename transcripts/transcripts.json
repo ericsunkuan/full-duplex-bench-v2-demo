@@ -2,12 +2,12 @@
     "entity_tracking.slow.freezeomni_sample1": [
       {"speaker": "Examiner", "text": "Which apartment?"},
       {"speaker": "Evaluatee", "text": "The quieter one near the park."},
-      {"speaker": "Examiner", "text": "Which apartment?"},
-      {"speaker": "Evaluatee", "text": "The quieter one near the park."},
-      {"speaker": "Examiner", "text": "Which apartment?"},
-      {"speaker": "Evaluatee", "text": "The quieter one near the park."},
-      {"speaker": "Examiner", "text": "Which apartment?"},
-      {"speaker": "Evaluatee", "text": "The quieter one near the park."}
+      {"speaker": "Examiner", "text": "Which apartment 2?"},
+      {"speaker": "Evaluatee", "text": "The louder one near the park."},
+      {"speaker": "Examiner", "text": "Which apartment 3?"},
+      {"speaker": "Evaluatee", "text": "The brighter one near the park."},
+      {"speaker": "Examiner", "text": "Which apartment 4?"},
+      {"speaker": "Evaluatee", "text": "The darker one near the park."}
     ]
   }
   
