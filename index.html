@@ -210,16 +210,20 @@
             }
         }
     
-        /* Hero diagram under intro */
-        .hero-figure { 
-            margin: 10px auto 30px; 
-            text-align: center; 
+        /* Paper abstract block */
+        .paper-abstract {
+            margin: 6px auto 28px;
+            max-width: 900px;
+            line-height: 1.6;
+            font-size: 1.05rem;
         }
-        .hero-figure img { 
-            width: 100%; 
-            max-width: 1100px; 
-            border-radius: 12px; 
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12); 
+        .paper-abstract h2 {
+            font-size: 1.35rem;
+            margin: 0 0 8px;
+            font-weight: 700;
+        }
+        .paper-abstract p {
+            margin: 0;
         }
 
     </style>
@@ -237,9 +241,11 @@
                 <p class="intro-text">
                     This page presents audio samples from our paper Full-Duplex-Bench V2. Below you can listen to sample outputs from different Evaluatee models across various task family and pacing setup.
                 </p>
-                <figure class="hero-figure">
-                    <img src="images/framework_overview.jpeg" alt="Overview diagram of task instructions, WebRTC orchestrator, and metrics in Full-Duplex-Bench V2" loading="lazy">
-                </figure>
+
+                <section id="abstract" class="paper-abstract">
+                    <h2>Abstract</h2>
+                    <p>While full-duplex speech agents enable natural, low-latency interaction by speaking and listening simultaneously, their consistency and task performance in multi-turn settings remain underexplored. We introduce Full-Duplex-Bench-v2 (FDB-v2), a streaming framework that integrates with an automated examiner that enforces staged goals under two pacing setups (Fast vs. Slow). FDB-v2 covers four task families—Daily, Correction, Entity Tracking, and Safety—and reports turn-taking fluency, multi-turn instruction following, and task-specific competence. The framework is extensible, supporting both commercial APIs and open-source models. When we test full-duplex systems with FDB-v2, they often get confused when people talk at the same time, struggle to handle corrections smoothly, and sometimes lose track of who or what is being talked about. Through an open-source, standardized streaming protocol and a task set, FDB-v2 makes it easy to extend to new task families, allowing the community to tailor and accelerate evaluation of multi-turn full-duplex systems.</p>
+                </section>
 
             </section>
             
