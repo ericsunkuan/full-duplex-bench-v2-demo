@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Full-Duplex-Bench v2 - Audio Demos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -35,11 +31,7 @@
             text-align: center;
         }
         
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
+        h1 { font-size: 2.5em; margin-bottom: 20px; font-weight: 700; }
         
         .subtitle {
             font-size: 1.2em;
@@ -48,18 +40,11 @@
             margin: 0 auto;
         }
         
-        .content {
-            padding: 40px;
-        }
+        .content { padding: 40px; }
         
-        .section {
-            margin-bottom: 50px;
-        }
+        .section { margin-bottom: 50px; }
         
-        .table-container {
-            overflow-x: auto;
-            margin-top: 20px;
-        }
+        .table-container { overflow-x: auto; margin-top: 20px; }
         
         .section-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -69,15 +54,9 @@
             margin-bottom: 20px;
         }
         
-        .section-header h2 {
-            font-size: 1.8em;
-            margin-bottom: 8px;
-        }
+        .section-header h2 { font-size: 1.8em; margin-bottom: 8px; }
         
-        .section-header p {
-            opacity: 0.95;
-            font-size: 0.95em;
-        }
+        .section-header p { opacity: 0.95; font-size: 0.95em; }
         
         .intro-text {
             font-size: 1.05em;
@@ -106,65 +85,25 @@
             border-bottom: 2px solid #dee2e6;
         }
         
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #f0f0f0;
-        }
+        td { padding: 15px; border-bottom: 1px solid #f0f0f0; }
         
-        tr:last-child td {
-            border-bottom: none;
-        }
+        tr:last-child td { border-bottom: none; }
         
-        tr:hover {
-            background: #f8f9fa;
-        }
+        tr:hover { background: #f8f9fa; }
         
-        tbody tr:nth-child(2n+3) td {
-            padding-top: 25px;
-            border-top: 2px solid #e9ecef;
-        }
+        tbody tr:nth-child(2n+3) td { padding-top: 25px; border-top: 2px solid #e9ecef; }
         
-        audio {
-            width: 100%;
-            min-width: 200px;
-            height: 40px;
-            outline: none;
-        }
+        audio { width: 100%; min-width: 200px; height: 40px; outline: none; }
         
-        .model-name {
-            font-weight: 600;
-            color: #667eea;
-        }
+        .model-name { font-weight: 600; color: #667eea; }
         
-        .metrics-table {
-            overflow-x: auto;
-        }
+        .metrics-table { overflow-x: auto; }
+        .metrics-table th, .metrics-table td { text-align: center; white-space: nowrap; }
+        .metrics-table th:first-child, .metrics-table td:first-child { text-align: left; }
         
-        .metrics-table th,
-        .metrics-table td {
-            text-align: center;
-            white-space: nowrap;
-        }
-        
-        .metrics-table th:first-child,
-        .metrics-table td:first-child {
-            text-align: left;
-        }
-        
-        .best-score {
-            font-weight: bold;
-            color: #28a745;
-        }
-        
-        .arrow-up::after {
-            content: " ↑";
-            color: #6c757d;
-        }
-        
-        .arrow-down::after {
-            content: " ↓";
-            color: #6c757d;
-        }
+        .best-score { font-weight: bold; color: #28a745; }
+        .arrow-up::after { content: " ↑"; color: #6c757d; }
+        .arrow-down::after { content: " ↓"; color: #6c757d; }
         
         footer {
             background: #f8f9fa;
@@ -174,54 +113,47 @@
             border-top: 1px solid #dee2e6;
         }
         
-        footer a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
+        footer a { color: #667eea; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
         
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            
-            header {
-                padding: 40px 20px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            .content {
-                padding: 20px;
-            }
-            
-            table {
-                font-size: 0.9em;
-            }
-            
-            .table-container {
-                margin: 0 -20px;
-                padding: 0 20px;
-            }
+            body { padding: 10px; }
+            header { padding: 40px 20px; }
+            h1 { font-size: 2em; }
+            .content { padding: 20px; }
+            table { font-size: 0.9em; }
+            .table-container { margin: 0 -20px; padding: 0 20px; }
         }
     
-        /* Hero diagram under intro */
-        .hero-figure { 
-            margin: 10px auto 30px; 
-            text-align: center; 
-        }
-        .hero-figure img { 
-            width: 100%; 
-            max-width: 1100px; 
-            border-radius: 12px; 
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12); 
-        }
+        /* Paper abstract block */
+        .paper-abstract { margin: 6px auto 28px; max-width: 900px; line-height: 1.6; font-size: 1.05rem; }
+        .paper-abstract h2 { font-size: 1.35rem; margin: 0 0 8px; font-weight: 700; }
+        .paper-abstract p { margin: 0; }
 
+        /* Transcript canvas styles */
+        .transcript-box {
+            margin-top: 8px;
+            max-height: 120px;            /* little scrollable canvas */
+            overflow: auto;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 0.9em;
+            color: #374151;
+        }
+        .transcript-title {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: .02em;
+            margin-bottom: 6px;
+        }
+        .transcript-turn { margin-bottom: 6px; }
+        .transcript-turn .speaker { font-weight: 600; margin-right: 6px; color: #4f46e5; }
+        .transcript-loading { font-style: italic; color: #6b7280; }
+        .transcript-empty { font-style: italic; color: #9ca3af; }
     </style>
 </head>
 <body>
@@ -237,6 +169,12 @@
                 <p class="intro-text">
                     This page presents audio samples from our paper Full-Duplex-Bench V2. Below you can listen to sample outputs from different Evaluatee models across various task family and pacing setup.
                 </p>
+
+                <section id="abstract" class="paper-abstract">
+                    <h2>Abstract</h2>
+                    <p>While full-duplex speech agents enable natural, low-latency interaction by speaking and listening simultaneously, their consistency and task performance in multi-turn settings remain underexplored. We introduce Full-Duplex-Bench-v2 (FDB-v2), a streaming framework that integrates with an automated examiner that enforces staged goals under two pacing setups (Fast vs. Slow). FDB-v2 covers four task families—Daily, Correction, Entity Tracking, and Safety—and reports turn-taking fluency, multi-turn instruction following, and task-specific competence. The framework is extensible, supporting both commercial APIs and open-source models. When we test full-duplex systems with FDB-v2, they often get confused when people talk at the same time, struggle to handle corrections smoothly, and sometimes lose track of who or what is being talked about. Through an open-source, standardized streaming protocol and a task set, FDB-v2 makes it easy to extend to new task families, allowing the community to tailor and accelerate evaluation of multi-turn full-duplex systems.</p>
+                </section>
+
                 <figure class="hero-figure">
                     <img src="images/framework_overview.jpeg" alt="Overview diagram of task instructions, WebRTC orchestrator, and metrics in Full-Duplex-Bench V2" loading="lazy">
                 </figure>
@@ -369,29 +307,28 @@
                         <tbody>
                             <tr>
                                 <td class="model-name">Sample 1 - Fast</td>
-                                <td><audio controls src="audio/daily/fast/gpt_sample1.wav"></audio></td>
-                                <td><audio controls src="audio/daily/fast/moshi_sample1.wav"></audio></td>
-                                <td><audio controls src="audio/daily/fast/freezeomni_sample1.wav"></audio></td>
+                                <td>
+                                    <audio controls src="audio/daily/fast/gpt_sample1.wav"></audio>
+                                </td>
+                                <td>
+                                    <audio controls src="audio/daily/fast/moshi_sample1.wav"></audio>
+                                </td>
+                                <td>
+                                    <audio controls src="audio/daily/fast/freezeomni_sample1.wav"></audio>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="model-name">Sample 1 - Slow</td>
-                                <td><audio controls src="audio/daily/slow/gpt_sample1.wav"></audio></td>
-                                <td><audio controls src="audio/daily/slow/moshi_sample1.wav"></audio></td>
-                                <td><audio controls src="audio/daily/slow/freezeomni_sample1.wav"></audio></td>
+                                <td>
+                                    <audio controls src="audio/daily/slow/gpt_sample1.wav"></audio>
+                                </td>
+                                <td>
+                                    <audio controls src="audio/daily/slow/moshi_sample1.wav"></audio>
+                                </td>
+                                <td>
+                                    <audio controls src="audio/daily/slow/freezeomni_sample1.wav"></audio>
+                                </td>
                             </tr>
-                            <!-- Add more samples here as needed -->
-                            <!-- <tr>
-                                <td class="model-name">Sample 2 - Fast</td>
-                                <td><audio controls src="audio/daily/fast/gpt_sample2.wav"></audio></td>
-                                <td><audio controls src="audio/daily/fast/moshi_sample2.wav"></audio></td>
-                                <td><audio controls src="audio/daily/fast/freezeomni_sample2.wav"></audio></td>
-                            </tr>
-                            <tr>
-                                <td class="model-name">Sample 2 - Slow</td>
-                                <td><audio controls src="audio/daily/slow/gpt_sample2.wav"></audio></td>
-                                <td><audio controls src="audio/daily/slow/moshi_sample2.wav"></audio></td>
-                                <td><audio controls src="audio/daily/slow/freezeomni_sample2.wav"></audio></td>
-                            </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -427,7 +364,6 @@
                                 <td><audio controls src="audio/correction/slow/moshi_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/correction/slow/freezeomni_sample1.wav"></audio></td>
                             </tr>
-                            <!-- Add more samples here as needed -->
                         </tbody>
                     </table>
                 </div>
@@ -463,7 +399,6 @@
                                 <td><audio controls src="audio/entity_tracking/slow/moshi_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/slow/freezeomni_sample1.wav"></audio></td>
                             </tr>
-                            <!-- Add more samples here as needed -->
                         </tbody>
                     </table>
                 </div>
@@ -499,7 +434,6 @@
                                 <td><audio controls src="audio/safety/slow/moshi_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/safety/slow/freezeomni_sample1.wav"></audio></td>
                             </tr>
-                            <!-- Add more samples here as needed -->
                         </tbody>
                     </table>
                 </div>
@@ -518,5 +452,112 @@
             <p style="margin-top: 15px; font-size: 0.9em;">© 2025 - All audio samples are for research purposes only</p>
         </footer>
     </div>
+
+    <!-- Transcript loader: creates a small scrollable canvas under each audio and fills it from a JSON file -->
+    <script>
+    (function() {
+        function getByPath(obj, path) {
+            if (!path || typeof obj !== 'object') return undefined;
+            var parts = path.split('.');
+            var cur = obj;
+            for (var i = 0; i < parts.length; i++) {
+                var p = parts[i];
+                if (cur && Object.prototype.hasOwnProperty.call(cur, p)) {
+                    cur = cur[p];
+                } else {
+                    return undefined;
+                }
+            }
+            return cur;
+        }
+
+        function appendTurn(container, turn) {
+            var div = document.createElement('div');
+            div.className = 'transcript-turn';
+            var speaker = document.createElement('span');
+            speaker.className = 'speaker';
+            speaker.textContent = (turn && turn.speaker ? turn.speaker + ': ' : '');
+            var text = document.createElement('span');
+            text.className = 'text';
+            text.textContent = (turn && (turn.text || turn.utterance)) || '';
+            div.appendChild(speaker);
+            div.appendChild(text);
+            container.appendChild(div);
+        }
+
+        function renderTranscriptInto(box, data) {
+            box.innerHTML = '<div class="transcript-title">Transcript</div>';
+            var container = document.createElement('div');
+            container.className = 'transcript-content';
+
+            if (!data) {
+                var empty = document.createElement('div');
+                empty.className = 'transcript-empty';
+                empty.textContent = 'No transcript found.';
+                box.appendChild(empty);
+                return;
+            }
+
+            if (typeof data === 'string') {
+                var p = document.createElement('p');
+                p.textContent = data;
+                container.appendChild(p);
+            } else if (Array.isArray(data)) {
+                data.forEach(function(turn) { appendTurn(container, turn); });
+            } else if (data.turns && Array.isArray(data.turns)) {
+                data.turns.forEach(function(turn) { appendTurn(container, turn); });
+            } else {
+                // Fallback: pretty-print whatever object we got
+                var pre = document.createElement('pre');
+                pre.textContent = JSON.stringify(data, null, 2);
+                container.appendChild(pre);
+            }
+            box.appendChild(container);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var audios = document.querySelectorAll('td audio');
+            audios.forEach(function(audio) {
+                // Insert a transcript canvas right after each audio element
+                var box = document.createElement('div');
+                box.className = 'transcript-box';
+                box.innerHTML = '<div class="transcript-title">Transcript</div><div class="transcript-loading">Loading transcript…</div>';
+                audio.insertAdjacentElement('afterend', box);
+
+                // Prepare possible lookup keys for this audio
+                var src = audio.getAttribute('src') || '';
+                var noExt = src.replace(/\.[^/.]+$/, '');
+                var dotPath = noExt.replace(/^audio\//, '').replace(/\//g, '.');
+                box.dataset.srcKey = src;        // e.g., audio/daily/fast/gpt_sample1.wav
+                box.dataset.noextKey = noExt;    // e.g., audio/daily/fast/gpt_sample1
+                box.dataset.dotKey = dotPath;    // e.g., daily.fast.gpt_sample1
+            });
+
+            // Load transcripts JSON (customize this path as needed)
+            var TRANSCRIPT_URL = 'transcripts/transcripts.json';
+            fetch(TRANSCRIPT_URL)
+                .then(function(r) { return r.json(); })
+                .then(function(db) {
+                    document.querySelectorAll('.transcript-box').forEach(function(box) {
+                        var keys = [box.dataset.srcKey, box.dataset.noextKey, box.dataset.dotKey];
+                        var data, k;
+                        for (var i = 0; i < keys.length; i++) {
+                            k = keys[i];
+                            if (!k) continue;
+                            if (Object.prototype.hasOwnProperty.call(db, k)) { data = db[k]; break; }
+                            var byPath = getByPath(db, k);
+                            if (byPath !== undefined) { data = byPath; break; }
+                        }
+                        renderTranscriptInto(box, data);
+                    });
+                })
+                .catch(function() {
+                    document.querySelectorAll('.transcript-box .transcript-loading').forEach(function(el) {
+                        el.textContent = 'Transcript unavailable.';
+                    });
+                });
+        });
+    })();
+    </script>
 </body>
 </html>

@@ -1,0 +1,18 @@
+{
+    "daily": {
+      "fast": {
+        "gpt_realtime_sample1": {
+          "turns": [
+            {"speaker": "Examiner", "text": "Hi, how can I help?"},
+            {"speaker": "Evaluatee", "text": "Book a table for two at 7pm."}
+          ]
+        }
+      }
+    },
+    "audio/daily/fast/moshi_sample1.wav": "Full transcript as a single string…",
+    "entity_tracking.slow.freezeomni_sample1": [
+      {"speaker": "Examiner", "text": "Which apartment?"},
+      {"speaker": "Evaluatee", "text": "The quieter one near the park."}
+    ]
+  }
+  
