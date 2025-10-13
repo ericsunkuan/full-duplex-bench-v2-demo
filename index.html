@@ -163,7 +163,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>Full-Duplex-Bench V2 ???: Audio Demos</h1>
+            <h1>Full-Duplex-Bench V2: Audio Demos</h1>
             <p class="subtitle">Audio samples demonstrating conversations between the Examiner and the Evaluatees.</p>
         </header>
         
@@ -460,6 +460,10 @@
     <!-- Transcript loader: creates a small scrollable canvas under each audio and fills it from a JSON file -->
     <script>
     (function() {
+        // Prevent double-initialization if this script tag is accidentally included twice
+        if (window.__FDB_TRANSCRIPTS_INIT__) return; 
+        window.__FDB_TRANSCRIPTS_INIT__ = true;
+
         function getByPath(obj, path) {
             if (!path || typeof obj !== 'object') return undefined;
             var parts = path.split('.');
@@ -490,6 +494,7 @@
         }
 
         function renderTranscriptInto(box, data) {
+            // Hard reset so we don't accidentally append twice
             box.innerHTML = '<div class="transcript-title">Transcript</div>';
             var container = document.createElement('div');
             container.className = 'transcript-content';
@@ -517,12 +522,16 @@
                 container.appendChild(pre);
             }
             box.appendChild(container);
+            box.dataset.rendered = '1';
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             var audios = document.querySelectorAll('td audio');
             audios.forEach(function(audio) {
-                // Insert a transcript canvas right after each audio element
+                // Insert a transcript canvas right after each audio element if not already present
+                var next = audio.nextElementSibling;
+                if (next && next.classList && next.classList.contains('transcript-box')) return;
+
                 var box = document.createElement('div');
                 box.className = 'transcript-box';
                 box.innerHTML = '<div class="transcript-title">Transcript</div><div class="transcript-loading">Loading transcript…</div>';
@@ -537,12 +546,13 @@
                 box.dataset.dotKey = dotPath;    // e.g., daily.fast.gpt_sample1
             });
 
-            // Load transcripts JSON (customize this path as needed)
-            var TRANSCRIPT_URL = 'transcripts/transcripts.json';
-            fetch(TRANSCRIPT_URL)
+            // Load transcripts JSON (cache-busted to avoid stale copies)
+            var TRANSCRIPT_URL = 'transcripts/transcripts.json?v=' + Date.now();
+            fetch(TRANSCRIPT_URL, { cache: 'no-store' })
                 .then(function(r) { return r.json(); })
                 .then(function(db) {
                     document.querySelectorAll('.transcript-box').forEach(function(box) {
+                        if (box.dataset.rendered === '1') return; // guard against double render
                         var keys = [box.dataset.srcKey, box.dataset.noextKey, box.dataset.dotKey];
                         var data, k;
                         for (var i = 0; i < keys.length; i++) {
@@ -555,7 +565,8 @@
                         renderTranscriptInto(box, data);
                     });
                 })
-                .catch(function() {
+                .catch(function(err) {
+                    console.warn('Transcript load failed:', err);
                     document.querySelectorAll('.transcript-box .transcript-loading').forEach(function(el) {
                         el.textContent = 'Transcript unavailable.';
                     });
