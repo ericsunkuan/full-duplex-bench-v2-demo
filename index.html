@@ -227,6 +227,27 @@
         .table-container td:nth-child(5) {
             width: 24%; 
         }
+
+        .paper-info-box {
+            text-align: center;     /* 文字置中 */
+            margin-bottom: 30px;    /* 與下方內容的間距 */
+            padding-bottom: 30px;   /* 標題與分隔線的間距 */
+            border-bottom: 1px solid #eee; /* 一條細分隔線 */
+        }
+        .paper-title {
+            font-size: 1.9em;       /* 論文標題字體大小 */
+            font-weight: 600;
+            color: #333;
+            line-height: 1.3;
+            margin-bottom: 15px;    /* 標題與作者的間距 */
+        }
+        .paper-authors {
+            font-size: 1.05em;      /* 作者列表字體大小 */
+            color: #555;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;         /* 讓作者列表在寬螢幕上也不會太寬 */
+        }
     </style>
 </head>
 <body>
@@ -238,14 +259,35 @@
         
         <div class="content">
             <!-- Introduction Section -->
+            <div class="paper-info-box">
+                <h2 class="paper-title">Full-Duplex-Bench-v2: A Multi-Turn Evaluation Framework for Duplex Dialogue Systems with an Automated Examiner</h2>
+                <p class="paper-authors">
+                    Guan-Ting Lin, Shih-Yun Shan Kuan, Jiatong Shi, Kai-Wei Chang, 
+                    Siddhant Arora, Shinji Watanabe, Hung-yi Lee
+                </p>
+            </div>
             <section class="section">
                 <p class="intro-text">
                     This page presents audio samples from our paper Full-Duplex-Bench V2. Below you can listen to sample outputs from different Evaluatee models across various task family and pacing setup.
                 </p>
 
-                <section id="abstract" class="paper-abstract">
-                    <h2>Abstract</h2>
-                    <p>While full-duplex speech agents enable natural, low-latency interaction by speaking and listening simultaneously, their consistency and task performance in multi-turn settings remain underexplored. We introduce Full-Duplex-Bench-v2 (FDB-v2), a streaming framework that integrates with an automated examiner that enforces staged goals under two pacing setups (Fast vs. Slow). FDB-v2 covers four task families—Daily, Correction, Entity Tracking, and Safety—and reports turn-taking fluency, multi-turn instruction following, and task-specific competence. The framework is extensible, supporting both commercial APIs and open-source models. When we test full-duplex systems with FDB-v2, they often get confused when people talk at the same time, struggle to handle corrections smoothly, and sometimes lose track of who or what is being talked about. Through an open-source, standardized streaming protocol and a task set, FDB-v2 makes it easy to extend to new task families, allowing the community to tailor and accelerate evaluation of multi-turn full-duplex systems.</p>
+                <section class="paper-abstract">
+                    
+                    <h2 style="text-align: center; font-size: 1.3em;">TL;DR</h2>
+                    <p style="font-size: 1.15rem; line-height: 1.7; text-align: center; margin-bottom: 30px;">
+                        <strong>We built an automated examiner (FDB-v2) to test if full-duplex AI can handle realistic, multi-turn conversations, including interruptions.</strong>
+                    </p>
+
+                    <h2 style="font-size: 1.3em;">The Research Gap</h2>
+                    <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px;">
+                        Most benchmarks fail by only testing <strong>single-turn or scripted scenarios</strong>, missing the natural flow of multi-turn conversations. While human testing is natural, it is <strong>costly, hard to scale, and difficult to reproduce</strong>. This leaves a critical gap: it's largely unknown if models can maintain <strong>consistency and context tracking</strong> across complex turns.
+                    </p>
+
+                    <h2 style="font-size: 1.3em;">Our Contribution</h2>
+                    <p style="font-size: 1.05rem; line-height: 1.7;">
+                        We introduce <strong>FDB-v2</strong>, a framework featuring an <strong>automated examiner</strong> that interacts with systems in real-time. It mimics natural dialogue by <strong>asking follow-ups, interrupting, and adapting</strong> to responses. This achieves a balanced combination of <strong>naturalism and evaluation efficiency</strong>.
+                    </p>
+
                 </section>
 
                 <figure class="hero-figure">
@@ -788,9 +830,6 @@
         </div>
         
         <footer>
-            <p><strong>Paper:</strong> Full-Duplex-Bench-v2: A Multi-Turn Evaluation Framework for Duplex
-                Dialogue Systems with an Automated Examiner</p>
-            <p><strong>Authors:</strong> Guan-Ting Lin, Shih-Yun Shan Kuan, Jiatong Shi, Kai-Wei Chang, Siddhant Arora, Shinji Watanabe, Hung-yi Lee</p>
             <p>
                 <a href="https://arxiv.org/abs/2510.07838">Paper (arXiv)</a> | 
                 <a href="#">Code (GitHub)</a> | 
