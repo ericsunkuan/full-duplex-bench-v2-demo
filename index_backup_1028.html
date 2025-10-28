@@ -157,46 +157,7 @@
         .transcript-turn .speaker { font-weight: 600; margin-right: 6px; color: #4f46e5; }
         .transcript-loading { font-style: italic; color: #6b7280; }
         .transcript-empty { font-style: italic; color: #9ca3af; }
-        .transcript-content { display: block; width: max-content; min-width: 100%; }
-
-        /* Task prompt styles */
-        .task-prompt-box {
-            margin-top: 8px;
-            max-height: 100px;
-            overflow-y: auto;
-            overflow-x: auto;
-            background: #fef3c7;
-            border: 1px solid #fbbf24;
-            border-radius: 6px;
-            padding: 8px;
-            font-size: 0.85em;
-            color: #78350f;
-            scrollbar-gutter: stable;
-        }
-        .task-prompt-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #92400e;
-            text-transform: uppercase;
-            letter-spacing: .02em;
-            margin-bottom: 4px;
-        }
-        .task-prompt-item {
-            margin-bottom: 4px;
-            line-height: 1.4;
-        }
-        .task-prompt-item strong {
-            color: #b45309;
-            margin-right: 4px;
-        }
-        .task-prompt-loading {
-            font-style: italic;
-            color: #92400e;
-        }
-        .task-prompt-empty {
-            font-style: italic;
-            color: #a16207;
-        }
+            .transcript-content { display: block; width: max-content; min-width: 100%; }
     </style>
 </head>
 <body>
@@ -805,44 +766,7 @@
             box.dataset.rendered = '1';
         }
 
-        function renderTaskPromptInto(box, data) {
-            box.innerHTML = '<div class="task-prompt-title">Task Prompt</div>';
-            
-            if (!data) {
-                var empty = document.createElement('div');
-                empty.className = 'task-prompt-empty';
-                empty.textContent = 'No task prompt found.';
-                box.appendChild(empty);
-                return;
-            }
-
-            // If data is an object with T1, T2, etc. keys
-            if (typeof data === 'object' && !Array.isArray(data)) {
-                var keys = Object.keys(data).sort();
-                keys.forEach(function(key) {
-                    var item = document.createElement('div');
-                    item.className = 'task-prompt-item';
-                    var strong = document.createElement('strong');
-                    strong.textContent = key + ':';
-                    item.appendChild(strong);
-                    item.appendChild(document.createTextNode(' ' + data[key]));
-                    box.appendChild(item);
-                });
-            } else if (typeof data === 'string') {
-                var p = document.createElement('div');
-                p.className = 'task-prompt-item';
-                p.textContent = data;
-                box.appendChild(p);
-            } else {
-                var pre = document.createElement('pre');
-                pre.textContent = JSON.stringify(data, null, 2);
-                box.appendChild(pre);
-            }
-            box.dataset.rendered = '1';
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
-            // Handle transcript boxes for audio elements
             var audios = document.querySelectorAll('td audio');
             audios.forEach(function(audio) {
                 // Insert a transcript canvas right after each audio element if not already present
@@ -861,42 +785,6 @@
                 box.dataset.srcKey = src;        // e.g., audio/daily/fast/gpt_sample1.wav
                 box.dataset.noextKey = noExt;    // e.g., audio/daily/fast/gpt_sample1
                 box.dataset.dotKey = dotPath;    // e.g., daily.fast.gpt_sample1
-            });
-
-            // Handle task prompt boxes for model-name cells
-            var modelCells = document.querySelectorAll('td.model-name');
-            modelCells.forEach(function(cell) {
-                // Check if already has task prompt box
-                if (cell.querySelector('.task-prompt-box')) return;
-
-                var taskBox = document.createElement('div');
-                taskBox.className = 'task-prompt-box';
-                taskBox.innerHTML = '<div class="task-prompt-title">Task Prompt</div><div class="task-prompt-loading">Loading task prompt…</div>';
-                cell.appendChild(taskBox);
-
-                // Parse the cell text to extract task family and sample number
-                // Expected format: "Sample 1 - Fast" or "Sample 1 - Slow"
-                var cellText = cell.textContent.trim();
-                var match = cellText.match(/Sample\s+(\d+)/i);
-                if (match) {
-                    var sampleNum = match[1];
-                    
-                    // Find the task family by looking at the section header
-                    var section = cell.closest('section');
-                    var sectionHeader = section ? section.querySelector('.section-header h2') : null;
-                    var taskFamily = '';
-                    if (sectionHeader) {
-                        var headerText = sectionHeader.textContent;
-                        // Extract task family name (e.g., "Task Family: Daily" -> "daily")
-                        var familyMatch = headerText.match(/Task Family:\s*(\w+)/i);
-                        if (familyMatch) {
-                            taskFamily = familyMatch[1].toLowerCase();
-                        }
-                    }
-                    
-                    taskBox.dataset.taskFamily = taskFamily;
-                    taskBox.dataset.sampleNum = sampleNum;
-                }
             });
 
             // Load transcripts JSON (cache-busted to avoid stale copies)
@@ -922,54 +810,6 @@
                     console.warn('Transcript load failed:', err);
                     document.querySelectorAll('.transcript-box .transcript-loading').forEach(function(el) {
                         el.textContent = 'Transcript unavailable.';
-                    });
-                });
-
-            // Load task prompts JSON
-            var TASK_PROMPT_URL = 'task_prompts/task_prompts.json?v=' + Date.now();
-            fetch(TASK_PROMPT_URL, { cache: 'no-store' })
-                .then(function(r) { return r.json(); })
-                .then(function(db) {
-                    document.querySelectorAll('.task-prompt-box').forEach(function(box) {
-                        if (box.dataset.rendered === '1') return;
-                        
-                        var taskFamily = box.dataset.taskFamily;
-                        var sampleNum = box.dataset.sampleNum;
-                        
-                        if (!taskFamily || !sampleNum) {
-                            renderTaskPromptInto(box, null);
-                            return;
-                        }
-
-                        // Try different lookup patterns
-                        var lookupKeys = [
-                            taskFamily + '.sample' + sampleNum,
-                            taskFamily + '.Sample' + sampleNum,
-                            taskFamily + '.' + sampleNum
-                        ];
-                        
-                        var data = null;
-                        for (var i = 0; i < lookupKeys.length; i++) {
-                            var key = lookupKeys[i];
-                            var found = getByPath(db, key);
-                            if (found !== undefined) {
-                                data = found;
-                                break;
-                            }
-                        }
-
-                        // Also try direct key access
-                        if (!data && db[taskFamily] && db[taskFamily]['sample' + sampleNum]) {
-                            data = db[taskFamily]['sample' + sampleNum];
-                        }
-
-                        renderTaskPromptInto(box, data);
-                    });
-                })
-                .catch(function(err) {
-                    console.warn('Task prompt load failed:', err);
-                    document.querySelectorAll('.task-prompt-box .task-prompt-loading').forEach(function(el) {
-                        el.textContent = 'Task prompt unavailable.';
                     });
                 });
         });

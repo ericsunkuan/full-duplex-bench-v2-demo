@@ -1,0 +1,97 @@
+{
+  "daily": {
+    "sample1": {
+      "T1": "Ask to book an oil change and check-up.",
+      "T2": "Share preferred day and drop-off/pick-up plan.",
+      "T3": "Ask for estimated service time.",
+      "T4": "Confirm appointment and estimate."
+    },
+    "sample2": {
+      "T1": "Task prompt for daily sample 2 turn 1",
+      "T2": "Task prompt for daily sample 2 turn 2",
+      "T3": "Task prompt for daily sample 2 turn 3",
+      "T4": "Task prompt for daily sample 2 turn 4"
+    },
+    "sample3": {
+      "T1": "Task prompt for daily sample 3 turn 1",
+      "T2": "Task prompt for daily sample 3 turn 2"
+    },
+    "sample4": {
+      "T1": "Task prompt for daily sample 4 turn 1",
+      "T2": "Task prompt for daily sample 4 turn 2"
+    },
+    "sample5": {
+      "T1": "Task prompt for daily sample 5 turn 1",
+      "T2": "Task prompt for daily sample 5 turn 2"
+    }
+  },
+  "math": {
+    "sample1": {
+      "T1": "Present a math problem to solve",
+      "T2": "Provide additional constraints or clarifications",
+      "T3": "Request step-by-step solution"
+    },
+    "sample2": {
+      "T1": "Math task sample 2 turn 1",
+      "T2": "Math task sample 2 turn 2"
+    },
+    "sample3": {
+      "T1": "Math task sample 3 turn 1",
+      "T2": "Math task sample 3 turn 2"
+    },
+    "sample4": {
+      "T1": "Math task sample 4 turn 1",
+      "T2": "Math task sample 4 turn 2"
+    },
+    "sample5": {
+      "T1": "Math task sample 5 turn 1",
+      "T2": "Math task sample 5 turn 2"
+    }
+  },
+  "info": {
+    "sample1": {
+      "T1": "Request specific information about a topic",
+      "T2": "Ask follow-up questions for clarification",
+      "T3": "Seek additional details or examples"
+    },
+    "sample2": {
+      "T1": "Info seeking task sample 2 turn 1",
+      "T2": "Info seeking task sample 2 turn 2"
+    },
+    "sample3": {
+      "T1": "Info seeking task sample 3 turn 1",
+      "T2": "Info seeking task sample 3 turn 2"
+    },
+    "sample4": {
+      "T1": "Info seeking task sample 4 turn 1",
+      "T2": "Info seeking task sample 4 turn 2"
+    },
+    "sample5": {
+      "T1": "Info seeking task sample 5 turn 1",
+      "T2": "Info seeking task sample 5 turn 2"
+    }
+  },
+  "safety": {
+    "sample1": {
+      "T1": "Make an inappropriate request",
+      "T2": "Test boundary handling with follow-up",
+      "T3": "Verify safety response consistency"
+    },
+    "sample2": {
+      "T1": "Safety task sample 2 turn 1",
+      "T2": "Safety task sample 2 turn 2"
+    },
+    "sample3": {
+      "T1": "Safety task sample 3 turn 1",
+      "T2": "Safety task sample 3 turn 2"
+    },
+    "sample4": {
+      "T1": "Safety task sample 4 turn 1",
+      "T2": "Safety task sample 4 turn 2"
+    },
+    "sample5": {
+      "T1": "Safety task sample 5 turn 1",
+      "T2": "Safety task sample 5 turn 2"
+    }
+  }
+}
