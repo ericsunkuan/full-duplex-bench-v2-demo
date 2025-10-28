@@ -91,7 +91,10 @@
         
         tr:hover { background: #f8f9fa; }
         
-        tbody tr:nth-child(2n+3) td { padding-top: 25px; border-top: 2px solid #e9ecef; }
+        /* Add spacing between sample groups (cells with rowspan) */
+        td.model-name[rowspan="2"] {
+            border-top: 2px solid #e9ecef;
+        }
         
         audio { width: 100%; min-width: 200px; height: 40px; outline: none; }
         
@@ -341,7 +344,8 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style="width: 150px;">Sample ID</th>
+                                <th style="width: 180px;">Sample ID</th>
+                                <th style="width: 80px;">Pacing</th>
                                 <th>GPT-Realtime</th>
                                 <th>Moshi</th>
                                 <th>FreezeOmni</th>
@@ -349,7 +353,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="model-name">Sample 1 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 1</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td>
                                     <audio controls src="audio/daily/fast/gpt_sample1.wav"></audio>
                                 </td>
@@ -361,7 +366,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 1 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td>
                                     <audio controls src="audio/daily/slow/gpt_sample1.wav"></audio>
                                 </td>
@@ -373,7 +378,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 2 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 2</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td>
                                     <audio controls src="audio/daily/fast/gpt_sample2.wav"></audio>
                                 </td>
@@ -385,7 +391,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 2 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td>
                                     <audio controls src="audio/daily/slow/gpt_sample2.wav"></audio>
                                 </td>
@@ -397,7 +403,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 3 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 3</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td>
                                     <audio controls src="audio/daily/fast/gpt_sample3.wav"></audio>
                                 </td>
@@ -409,7 +416,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 3 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td>
                                     <audio controls src="audio/daily/slow/gpt_sample3.wav"></audio>
                                 </td>
@@ -421,7 +428,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 4 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 4</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td>
                                     <audio controls src="audio/daily/fast/gpt_sample4.wav"></audio>
                                 </td>
@@ -433,7 +441,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 4 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td>
                                     <audio controls src="audio/daily/slow/gpt_sample4.wav"></audio>
                                 </td>
@@ -445,7 +453,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 5 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 5</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td>
                                     <audio controls src="audio/daily/fast/gpt_sample5.wav"></audio>
                                 </td>
@@ -457,7 +466,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 5 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td>
                                     <audio controls src="audio/daily/slow/gpt_sample5.wav"></audio>
                                 </td>
@@ -484,7 +493,11 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style="width: 150px;">Sample ID</th>
+                                <th style="width: 180px;">Sample ID</th>
+                                <th style="width: 80px;">Pacing</th>
+                                <th>GPT-Realtime</th>
+                                <th>Moshi</th>
+                                <th>FreezeOmni
                                 <th>GPT-Realtime</th>
                                 <th>Moshi</th>
                                 <th>FreezeOmni</th>
@@ -492,66 +505,71 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="model-name">Sample 1 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 1</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/correction/fast/gpt_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/correction/fast/moshi_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/correction/fast/freezeomni_sample1.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 1 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/correction/slow/gpt_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/correction/slow/moshi_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/correction/slow/freezeomni_sample1.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 2 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 2</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/correction/fast/gpt_sample2.wav"></audio></td>
                                 <td><audio controls src="audio/correction/fast/moshi_sample2.wav"></audio></td>
                                 <td><audio controls src="audio/correction/fast/freezeomni_sample2.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 2 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/correction/slow/gpt_sample2.wav"></audio></td>
                                 <td><audio controls src="audio/correction/slow/moshi_sample2.wav"></audio></td>
                                 <td><audio controls src="audio/correction/slow/freezeomni_sample2.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 3 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 3</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/correction/fast/gpt_sample3.wav"></audio></td>
                                 <td><audio controls src="audio/correction/fast/moshi_sample3.wav"></audio></td>
                                 <td><audio controls src="audio/correction/fast/freezeomni_sample3.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 3 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/correction/slow/gpt_sample3.wav"></audio></td>
                                 <td><audio controls src="audio/correction/slow/moshi_sample3.wav"></audio></td>
                                 <td><audio controls src="audio/correction/slow/freezeomni_sample3.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 4 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 4</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/correction/fast/gpt_sample4.wav"></audio></td>
                                 <td><audio controls src="audio/correction/fast/moshi_sample4.wav"></audio></td>
                                 <td><audio controls src="audio/correction/fast/freezeomni_sample4.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 4 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/correction/slow/gpt_sample4.wav"></audio></td>
                                 <td><audio controls src="audio/correction/slow/moshi_sample4.wav"></audio></td>
                                 <td><audio controls src="audio/correction/slow/freezeomni_sample4.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 5 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 5</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/correction/fast/gpt_sample5.wav"></audio></td>
                                 <td><audio controls src="audio/correction/fast/moshi_sample5.wav"></audio></td>
                                 <td><audio controls src="audio/correction/fast/freezeomni_sample5.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 5 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/correction/slow/gpt_sample5.wav"></audio></td>
                                 <td><audio controls src="audio/correction/slow/moshi_sample5.wav"></audio></td>
                                 <td><audio controls src="audio/correction/slow/freezeomni_sample5.wav"></audio></td>
                             </tr>
-                        </tbody>
+
                     </table>
                 </div>
             </section>
@@ -567,7 +585,11 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style="width: 150px;">Sample ID</th>
+                                <th style="width: 180px;">Sample ID</th>
+                                <th style="width: 80px;">Pacing</th>
+                                <th>GPT-Realtime</th>
+                                <th>Moshi</th>
+                                <th>FreezeOmni
                                 <th>GPT-Realtime</th>
                                 <th>Moshi</th>
                                 <th>FreezeOmni</th>
@@ -575,66 +597,71 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="model-name">Sample 1 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 1</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/entity_tracking/fast/gpt_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/fast/moshi_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/fast/freezeomni_sample1.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 1 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/entity_tracking/slow/gpt_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/slow/moshi_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/slow/freezeomni_sample1.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 2 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 2</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/entity_tracking/fast/gpt_sample2.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/fast/moshi_sample2.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/fast/freezeomni_sample2.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 2 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/entity_tracking/slow/gpt_sample2.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/slow/moshi_sample2.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/slow/freezeomni_sample2.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 3 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 3</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/entity_tracking/fast/gpt_sample3.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/fast/moshi_sample3.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/fast/freezeomni_sample3.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 3 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/entity_tracking/slow/gpt_sample3.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/slow/moshi_sample3.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/slow/freezeomni_sample3.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 4 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 4</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/entity_tracking/fast/gpt_sample4.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/fast/moshi_sample4.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/fast/freezeomni_sample4.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 4 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/entity_tracking/slow/gpt_sample4.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/slow/moshi_sample4.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/slow/freezeomni_sample4.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 5 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 5</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/entity_tracking/fast/gpt_sample5.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/fast/moshi_sample5.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/fast/freezeomni_sample5.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 5 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/entity_tracking/slow/gpt_sample5.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/slow/moshi_sample5.wav"></audio></td>
                                 <td><audio controls src="audio/entity_tracking/slow/freezeomni_sample5.wav"></audio></td>
                             </tr>
-                        </tbody>
+
                     </table>
                 </div>
             </section>
@@ -650,7 +677,11 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style="width: 150px;">Sample ID</th>
+                                <th style="width: 180px;">Sample ID</th>
+                                <th style="width: 80px;">Pacing</th>
+                                <th>GPT-Realtime</th>
+                                <th>Moshi</th>
+                                <th>FreezeOmni
                                 <th>GPT-Realtime</th>
                                 <th>Moshi</th>
                                 <th>FreezeOmni</th>
@@ -658,66 +689,71 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="model-name">Sample 1 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 1</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/safety/fast/gpt_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/safety/fast/moshi_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/safety/fast/freezeomni_sample1.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 1 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/safety/slow/gpt_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/safety/slow/moshi_sample1.wav"></audio></td>
                                 <td><audio controls src="audio/safety/slow/freezeomni_sample1.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 2 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 2</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/safety/fast/gpt_sample2.wav"></audio></td>
                                 <td><audio controls src="audio/safety/fast/moshi_sample2.wav"></audio></td>
                                 <td><audio controls src="audio/safety/fast/freezeomni_sample2.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 2 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/safety/slow/gpt_sample2.wav"></audio></td>
                                 <td><audio controls src="audio/safety/slow/moshi_sample2.wav"></audio></td>
                                 <td><audio controls src="audio/safety/slow/freezeomni_sample2.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 3 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 3</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/safety/fast/gpt_sample3.wav"></audio></td>
                                 <td><audio controls src="audio/safety/fast/moshi_sample3.wav"></audio></td>
                                 <td><audio controls src="audio/safety/fast/freezeomni_sample3.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 3 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/safety/slow/gpt_sample3.wav"></audio></td>
                                 <td><audio controls src="audio/safety/slow/moshi_sample3.wav"></audio></td>
                                 <td><audio controls src="audio/safety/slow/freezeomni_sample3.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 4 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 4</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/safety/fast/gpt_sample4.wav"></audio></td>
                                 <td><audio controls src="audio/safety/fast/moshi_sample4.wav"></audio></td>
                                 <td><audio controls src="audio/safety/fast/freezeomni_sample4.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 4 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/safety/slow/gpt_sample4.wav"></audio></td>
                                 <td><audio controls src="audio/safety/slow/moshi_sample4.wav"></audio></td>
                                 <td><audio controls src="audio/safety/slow/freezeomni_sample4.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 5 - Fast</td>
+                                <td class="model-name" rowspan="2">Sample 5</td>
+                                <td style="font-weight: 600; color: #667eea;">Fast</td>
                                 <td><audio controls src="audio/safety/fast/gpt_sample5.wav"></audio></td>
                                 <td><audio controls src="audio/safety/fast/moshi_sample5.wav"></audio></td>
                                 <td><audio controls src="audio/safety/fast/freezeomni_sample5.wav"></audio></td>
                             </tr>
                             <tr>
-                                <td class="model-name">Sample 5 - Slow</td>
+                                <td style="font-weight: 600; color: #667eea;">Slow</td>
                                 <td><audio controls src="audio/safety/slow/gpt_sample5.wav"></audio></td>
                                 <td><audio controls src="audio/safety/slow/moshi_sample5.wav"></audio></td>
                                 <td><audio controls src="audio/safety/slow/freezeomni_sample5.wav"></audio></td>
                             </tr>
-                        </tbody>
+
                     </table>
                 </div>
             </section>
@@ -864,8 +900,8 @@
             });
 
             // Handle task prompt boxes for model-name cells (only in audio sample sections, not metrics table)
-            var modelCells = document.querySelectorAll('td.model-name');
-            console.log('Found model-name cells:', modelCells.length);
+            var modelCells = document.querySelectorAll('td.model-name[rowspan="2"]');
+            console.log('Found model-name cells with rowspan:', modelCells.length);
             modelCells.forEach(function(cell) {
                 // Skip if this cell is in the metrics table
                 if (cell.closest('.metrics-table')) {
@@ -881,8 +917,8 @@
                 taskBox.innerHTML = '<div class="task-prompt-title">Task Prompt</div><div class="task-prompt-loading">Loading task prompt…</div>';
                 cell.appendChild(taskBox);
 
-                // Parse the cell text to extract task family and sample number
-                // Expected format: "Sample 1 - Fast" or "Sample 1 - Slow"
+                // Parse the cell text to extract sample number
+                // Expected format: "Sample 1" (no Fast/Slow since it has rowspan)
                 var cellText = cell.textContent.trim();
                 console.log('Processing cell text:', cellText);
                 var match = cellText.match(/Sample\s+(\d+)/i);
