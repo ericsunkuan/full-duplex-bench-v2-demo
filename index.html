@@ -865,9 +865,13 @@
 
             // Handle task prompt boxes for model-name cells (only in audio sample sections, not metrics table)
             var modelCells = document.querySelectorAll('td.model-name');
+            console.log('Found model-name cells:', modelCells.length);
             modelCells.forEach(function(cell) {
                 // Skip if this cell is in the metrics table
-                if (cell.closest('.metrics-table')) return;
+                if (cell.closest('.metrics-table')) {
+                    console.log('Skipping metrics table cell');
+                    return;
+                }
                 
                 // Check if already has task prompt box
                 if (cell.querySelector('.task-prompt-box')) return;
@@ -880,6 +884,7 @@
                 // Parse the cell text to extract task family and sample number
                 // Expected format: "Sample 1 - Fast" or "Sample 1 - Slow"
                 var cellText = cell.textContent.trim();
+                console.log('Processing cell text:', cellText);
                 var match = cellText.match(/Sample\s+(\d+)/i);
                 if (match) {
                     var sampleNum = match[1];
@@ -890,10 +895,13 @@
                     var taskFamily = '';
                     if (sectionHeader) {
                         var headerText = sectionHeader.textContent;
-                        // Extract task family name (e.g., "Task Family: Daily" -> "daily")
-                        var familyMatch = headerText.match(/Task Family:\s*(\w+)/i);
+                        console.log('Section header text:', headerText);
+                        // Extract task family name (e.g., "Daily Task Family" -> "daily", "Entity Tracking Task Family" -> "entity_tracking")
+                        var familyMatch = headerText.match(/^(.+?)\s+Task\s+Family/i);
                         if (familyMatch) {
-                            taskFamily = familyMatch[1].toLowerCase();
+                            // Convert spaces to underscores and lowercase
+                            taskFamily = familyMatch[1].toLowerCase().replace(/\s+/g, '_');
+                            console.log('Extracted task family:', taskFamily, 'sample:', sampleNum);
                         }
                     }
                     
@@ -930,16 +938,26 @@
 
             // Load task prompts JSON
             var TASK_PROMPT_URL = 'task_prompts/task_prompts.json?v=' + Date.now();
+            console.log('Loading task prompts from:', TASK_PROMPT_URL);
             fetch(TASK_PROMPT_URL, { cache: 'no-store' })
-                .then(function(r) { return r.json(); })
+                .then(function(r) { 
+                    if (!r.ok) {
+                        throw new Error('HTTP error ' + r.status);
+                    }
+                    return r.json(); 
+                })
                 .then(function(db) {
+                    console.log('Task prompts loaded:', db);
                     document.querySelectorAll('.task-prompt-box').forEach(function(box) {
                         if (box.dataset.rendered === '1') return;
                         
                         var taskFamily = box.dataset.taskFamily;
                         var sampleNum = box.dataset.sampleNum;
                         
+                        console.log('Looking for task prompt:', 'taskFamily=' + taskFamily, 'sampleNum=' + sampleNum);
+                        
                         if (!taskFamily || !sampleNum) {
+                            console.log('Missing taskFamily or sampleNum');
                             renderTaskPromptInto(box, null);
                             return;
                         }
@@ -951,11 +969,14 @@
                             taskFamily + '.' + sampleNum
                         ];
                         
+                        console.log('Trying lookup keys:', lookupKeys);
+                        
                         var data = null;
                         for (var i = 0; i < lookupKeys.length; i++) {
                             var key = lookupKeys[i];
                             var found = getByPath(db, key);
                             if (found !== undefined) {
+                                console.log('Found data with key:', key);
                                 data = found;
                                 break;
                             }
@@ -963,14 +984,21 @@
 
                         // Also try direct key access
                         if (!data && db[taskFamily] && db[taskFamily]['sample' + sampleNum]) {
+                            console.log('Found data with direct access');
                             data = db[taskFamily]['sample' + sampleNum];
+                        }
+
+                        if (data) {
+                            console.log('Rendering task prompt data:', data);
+                        } else {
+                            console.log('No data found for this sample');
                         }
 
                         renderTaskPromptInto(box, data);
                     });
                 })
                 .catch(function(err) {
-                    console.warn('Task prompt load failed:', err);
+                    console.error('Task prompt load failed:', err);
                     document.querySelectorAll('.task-prompt-box .task-prompt-loading').forEach(function(el) {
                         el.textContent = 'Task prompt unavailable.';
                     });
