@@ -135,9 +135,50 @@
         }
     
         /* Paper abstract block */
-        .paper-abstract { margin: 6px auto 28px; max-width: 900px; line-height: 1.6; font-size: 1.05rem; }
-        .paper-abstract h2 { font-size: 1.35rem; margin: 0 0 8px; font-weight: 700; }
-        .paper-abstract p { margin: 0; }
+        .paper-abstract {
+            margin: 40px auto 40px; /* 增加上下間距 */
+            max-width: 900px;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            background: #f9fafb; /* 淺灰色背景 */
+            border: 1px solid #e5e7eb; /* 淺色邊框 */
+            border-radius: 12px; /* 圓角 */
+            padding: 35px 40px; /* 增加內部空間 */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03); /* subtle shadow */
+        }
+        .paper-abstract h2 {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 12px; /* 標題下間距 */
+            padding-bottom: 10px; /* 底線的空間 */
+            border-bottom: 2px solid #e9ecef; /* 標題底線 */
+        }
+        .paper-abstract p {
+            margin-bottom: 20px; /* 段落間距 */
+            color: #444; /* 讓文字顏色深一點，易於閱讀 */
+        }
+        .paper-abstract p:last-child {
+            margin-bottom: 0; /* 最後一個段落移除底部間距 */
+        }
+        
+        /* 專門給 TL;DR 標題的樣式 */
+        .tldr-title {
+            text-align: center;
+            font-size: 1.5em; /* 讓 "TL;DR" 更大 */
+            font-weight: 700;
+            color: #667eea; /* 使用您的主題紫色 */
+            border-bottom: none; /* 移除底線 */
+            margin-bottom: 15px;
+        }
+        /* 專門給 TL;DR 內文的樣式 */
+        .tldr-text {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px !important; /* 確保與下方 "Research Gap" 有足夠間距 */
+        }
 
         /* Transcript canvas styles */
         .transcript-box {
@@ -298,24 +339,22 @@
         <div class="content">
             <!-- Introduction Section -->
             <section class="section">
-
                 <section class="paper-abstract">
-                    
-                    <h2 style="font-size: 1.3em;">TL;DR</h2>
-                    <p style="font-size: 1.15rem; line-height: 1.7; text-align: center; margin-bottom: 30px;">
+
+                    <h2 class="tldr-title">TL;DR</h2>
+                    <p class="tldr-text">
                         <strong>We built an automated examiner to test if full-duplex speech models can handle multi-turn conversations in different real-world scenarios.</strong>
                     </p>
-
-                    <h2 style="font-size: 1.3em;">The Research Gap</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px;">
+        
+                    <h2>The Research Gap</h2>
+                    <p>
                         Most benchmarks only evaluate <strong>single-turn or scripted scenarios</strong>, missing the natural flow of multi-turn conversations. This leaves a critical gap: it's largely unknown if models can maintain <strong>consistency and context tracking</strong> across complex turns.
                     </p>
-
-                    <h2 style="font-size: 1.3em;">Our Contribution</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.7;">
+        
+                    <h2>Our Contribution</h2>
+                    <p>
                         We introduce <strong>FDB-v2</strong>, a novel multi-turn evaluation framework featuring an <strong>automated examiner</strong> that interacts with systems in real-time. It mimics natural dialogue by <strong>asking follow-ups, interrupting, and adapting</strong> to responses. This achieves a balanced combination of <strong>naturalism and evaluation efficiency</strong>.
                     </p>
-
                 </section>
 
                 <figure class="hero-figure">
