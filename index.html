@@ -306,6 +306,25 @@
             font-size: 0.8em;
             vertical-align: super; /* 確保它保持在上方 */
         }
+        .header-links {
+            margin-top: 25px; /* 與學校列表的間距 */
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        .header-links a {
+            color: #ffffff; /* 連結顏色改為白色 */
+            font-weight: 600; /* 加粗 */
+            text-decoration: underline; /* 保留底線，但樣式更乾淨 */
+            text-decoration-thickness: 1px; /* 底線粗細 */
+            text-underline-offset: 3px; /* 底線與文字的距離 */
+            opacity: 0.9; /* 輕微透明 */
+            margin: 0 10px; /* 連結間的距離 */
+            transition: opacity 0.2s ease;
+        }
+        .header-links a:hover {
+            opacity: 1; /* 滑鼠懸停時完全不透明 */
+            text-decoration-thickness: 2px; /* 底線加粗 */
+        }
     </style>
 </head>
 <body>
