@@ -863,9 +863,12 @@
                 box.dataset.dotKey = dotPath;    // e.g., daily.fast.gpt_sample1
             });
 
-            // Handle task prompt boxes for model-name cells
+            // Handle task prompt boxes for model-name cells (only in audio sample sections, not metrics table)
             var modelCells = document.querySelectorAll('td.model-name');
             modelCells.forEach(function(cell) {
+                // Skip if this cell is in the metrics table
+                if (cell.closest('.metrics-table')) return;
+                
                 // Check if already has task prompt box
                 if (cell.querySelector('.task-prompt-box')) return;
 
