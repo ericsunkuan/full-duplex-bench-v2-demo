@@ -101,7 +101,7 @@
         .model-name { font-weight: 600; color: #667eea; }
         
         .metrics-table { overflow-x: auto; }
-        .metrics-table th, .metrics-table td { text-align: center; white-space: nowrap; }
+        .metrics-table th, .metrics-table td { text-align: center; white-space: normal; }
         .metrics-table th:first-child, .metrics-table td:first-child { text-align: left; }
         
         .best-score { font-weight: bold; color: #28a745; }
@@ -118,6 +118,13 @@
         
         footer a { color: #667eea; text-decoration: none; }
         footer a:hover { text-decoration: underline; }
+        .hero-figure {
+            text-align: center; 
+        }
+        .hero-figure img {
+            max-width: 75%; 
+            height: auto;  
+        }
         
         @media (max-width: 768px) {
             body { padding: 10px; }
@@ -136,7 +143,7 @@
         /* Transcript canvas styles */
         .transcript-box {
             margin-top: 8px;
-            height: 140px; /* fixed height for reliable vertical scrolling */
+            height: 180px; /* fixed height for reliable vertical scrolling */
             overflow: auto; /* allow both axes */
             overflow-x: auto;
             overflow-y: auto;
@@ -156,11 +163,11 @@
             letter-spacing: .02em;
             margin-bottom: 6px;
         }
-        .transcript-turn { margin-bottom: 6px; white-space: nowrap; }
+        .transcript-turn { margin-bottom: 6px; white-space: normal; }
         .transcript-turn .speaker { font-weight: 600; margin-right: 6px; color: #4f46e5; }
         .transcript-loading { font-style: italic; color: #6b7280; }
         .transcript-empty { font-style: italic; color: #9ca3af; }
-        .transcript-content { display: block; width: max-content; min-width: 100%; }
+        .transcript-content { display: block; min-width: 100%; }
 
         /* Task prompt styles */
         .task-prompt-box {
@@ -199,6 +206,18 @@
         .task-prompt-empty {
             font-style: italic;
             color: #a16207;
+        }
+        .table-container table {
+            table-layout: fixed; 
+            word-wrap: break-word; 
+        }
+        .table-container th:first-child,
+        .table-container td:first-child {
+            width: 20%; 
+        }
+        .table-container th:not(:first-child),
+        .table-container td:not(:first-child) {
+            width: 26.67%; 
         }
     </style>
 </head>
@@ -344,8 +363,8 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style="width: 180px;">Sample ID</th>
-                                <th style="width: 80px;">Pacing</th>
+                                <th>Sample ID</th>
+                                <th>Pacing</th>
                                 <th>GPT-Realtime</th>
                                 <th>Moshi</th>
                                 <th>FreezeOmni</th>
@@ -493,8 +512,8 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style="width: 180px;">Sample ID</th>
-                                <th style="width: 80px;">Pacing</th>
+                                <th>Sample ID</th>
+                                <th>Pacing</th>
                                 <th>GPT-Realtime</th>
                                 <th>Moshi</th>
                                 <th>FreezeOmni
@@ -585,8 +604,8 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style="width: 180px;">Sample ID</th>
-                                <th style="width: 80px;">Pacing</th>
+                                <th>Sample ID</th>
+                                <th>Pacing</th>
                                 <th>GPT-Realtime</th>
                                 <th>Moshi</th>
                                 <th>FreezeOmni
@@ -677,8 +696,8 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style="width: 180px;">Sample ID</th>
-                                <th style="width: 80px;">Pacing</th>
+                                <th>Sample ID</th>
+                                <th>Pacing</th>
                                 <th>GPT-Realtime</th>
                                 <th>Moshi</th>
                                 <th>FreezeOmni
