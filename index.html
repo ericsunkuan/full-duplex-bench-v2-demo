@@ -19,9 +19,9 @@
         } */
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            line-height: 1.8;
+            color: #374151;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%); /* Warm yellow gradient */
             padding: 20px;
         }
         
@@ -29,14 +29,14 @@
             max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 20px; /* More rounded */
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
             overflow: hidden;
         }
         
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); /* Sunny yellow/orange */
+            color: #78350f; /* Dark brown text instead of white */
             padding: 60px 40px;
             text-align: center;
         }
@@ -48,11 +48,11 @@
         }
         
         h1 { 
-            font-size: 2.5em; 
+            font-size: 2.3em; 
             margin-bottom: 20px; 
-            font-weight: 800; 
-            line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-weight: 700; /* Less heavy */
+            line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
         }
         .subtitle {
             opacity: 0.95;
@@ -67,14 +67,20 @@
         .table-container { overflow-x: auto; margin-top: 20px; }
         
         .section-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%); /* Soft yellow */
+            color: #78350f;
+            padding: 20px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+            border: 2px solid #fde68a; /* Lighter border */
         }
-        
-        .section-header h2 { font-size: 1.8em; margin-bottom: 8px; }
+                
+        .section-header h2 { 
+            font-size: 1.8em; 
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
         
         .section-header p { opacity: 0.95; font-size: 0.95em; }
         
@@ -149,15 +155,21 @@
         .arrow-down::after { content: " ↓"; color: #6c757d; }
         
         footer {
-            background: #f8f9fa;
-            padding: 30px;
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            padding: 40px;
             text-align: center;
-            color: #666;
-            border-top: 1px solid #dee2e6;
+            color: #78350f;
+            border-top: 3px solid #fbbf24;
         }
         
-        footer a { color: #667eea; text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
+        footer a { 
+            color: #f59e0b;
+        }
+        
+        footer a:hover { 
+            color: #d97706;
+        }
+
         .hero-figure {
             text-align: center; 
         }
@@ -208,7 +220,7 @@
             text-align: center;
             font-size: 1.5em; /* 讓 "TL;DR" 更大 */
             font-weight: 700;
-            color: #667eea; /* 使用您的主題紫色 */
+            color: #f59e0b; /* 使用您的主題紫色 */
             border-bottom: none; /* 移除底線 */
             margin-bottom: 15px;
         }
@@ -352,20 +364,7 @@
             font-size: 1.1em;
             font-weight: 500;
         }
-        .header-links a {
-            color: #ffffff; /* 連結顏色改為白色 */
-            font-weight: 600; /* 加粗 */
-            text-decoration: underline; /* 保留底線，但樣式更乾淨 */
-            text-decoration-thickness: 1px; /* 底線粗細 */
-            text-underline-offset: 3px; /* 底線與文字的距離 */
-            opacity: 0.9; /* 輕微透明 */
-            margin: 0 10px; /* 連結間的距離 */
-            transition: opacity 0.2s ease;
-        }
-        .header-links a:hover {
-            opacity: 1; /* 滑鼠懸停時完全不透明 */
-            text-decoration-thickness: 2px; /* 底線加粗 */
-        }
+        
         header {
             position: relative;
             overflow: hidden;
@@ -393,22 +392,38 @@
         /* Enhanced header links */
         .header-links a {
             display: inline-block;
-            color: #ffffff;
+            color: #78350f;
             font-weight: 600;
             text-decoration: none;
-            margin: 0 15px;
-            padding: 12px 24px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            margin: 0 12px;
+            padding: 14px 28px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px; /* Pill shape */
+            border: 2px solid rgba(120, 53, 15, 0.2);
             transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-links a:hover {
+            background: #ffffff;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        th {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 16px;
+            color: #78350f;
+            font-weight: 600;
+            border-bottom: 2px solid #fbbf24;
         }
         
-        .header-links a:hover {
-            background: rgba(255,255,255,0.25);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        tr:hover { 
+            background: linear-gradient(to right, #fffbeb 0%, #ffffff 100%);
+        }
+        
+        .model-name { 
+            font-weight: 600; 
+            color: #f59e0b;
         }
     </style>
 </head>
