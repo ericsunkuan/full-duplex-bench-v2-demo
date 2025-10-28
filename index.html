@@ -172,7 +172,7 @@
         /* Task prompt styles */
         .task-prompt-box {
             margin-top: 8px;
-            max-height: 100px;
+            max-height: 160px;
             overflow-y: auto;
             overflow-x: auto;
             background: #fef3c7;
@@ -211,13 +211,21 @@
             table-layout: fixed; 
             word-wrap: break-word; 
         }
-        .table-container th:first-child,
-        .table-container td:first-child {
-            width: 20%; 
+        .table-container th:nth-child(1),
+        .table-container td:nth-child(1) {
+            width: 18%;
         }
-        .table-container th:not(:first-child),
-        .table-container td:not(:first-child) {
-            width: 26.67%; 
+        .table-container th:nth-child(2),
+        .table-container td:nth-child(2) {
+            width: 10%;
+        }        
+        .table-container th:nth-child(3),
+        .table-container td:nth-child(3),
+        .table-container th:nth-child(4),
+        .table-container td:nth-child(4),
+        .table-container th:nth-child(5),
+        .table-container td:nth-child(5) {
+            width: 24%; 
         }
     </style>
 </head>
