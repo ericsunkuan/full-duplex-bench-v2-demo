@@ -326,6 +326,34 @@
             .paper-abstract .hero-figure img {
                 max-width: 100%;
             }
+            td.model-name[rowspan="2"] {
+                font-size: 0 !important; /* 隱藏 "Sample N" 文字 */
+                line-height: 0 !important;
+                padding: 8px !important;
+            }
+            
+            /* 隱藏除了 task prompt box 以外的所有內容 */
+            td.model-name[rowspan="2"] > *:not(.task-prompt-box) {
+                display: none !important;
+            }
+            
+            /* 確保 task prompt 正常顯示 */
+            td.model-name[rowspan="2"] .task-prompt-box {
+                display: block !important;
+                font-size: 0.8em !important;
+                line-height: 1.4 !important;
+                max-height: 180px;
+                overflow-y: auto;
+            }
+            
+            td.model-name[rowspan="2"] .task-prompt-title {
+                font-size: 0.7rem !important;
+            }
+            
+            td.model-name[rowspan="2"] .task-prompt-item {
+                font-size: 0.85em !important;
+                line-height: 1.4 !important;
+            }
         }
         
         /* 極小螢幕（小於 480px）的額外優化 */
@@ -474,11 +502,12 @@
         }
         .table-container th:nth-child(1),
         .table-container td:nth-child(1) {
-            width: 18%;
+            width: 15%;
         }
         .table-container th:nth-child(2),
         .table-container td:nth-child(2) {
-            width: 6%;
+            width: 5%;
+            text-align: center;
         }        
         .table-container th:nth-child(3),
         .table-container td:nth-child(3),
@@ -486,7 +515,7 @@
         .table-container td:nth-child(4),
         .table-container th:nth-child(5),
         .table-container td:nth-child(5) {
-            width: 26%; 
+            width: 26.6%; 
         }
 
         .paper-info-box {
@@ -1338,7 +1367,7 @@
               var cellLabel = (cell.textContent || '').trim();
             
               // ➋ 先把文字清空，等等只塞 Task Prompt，不要顯示 "Sample N"
-              cell.textContent = '';
+              // cell.textContent = '';
             
               // ➌ 建立並插入 Task Prompt 容器
               var taskBox = document.createElement('div');
