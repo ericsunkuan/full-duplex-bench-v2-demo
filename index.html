@@ -326,6 +326,13 @@
             footer p {
                 margin: 10px 0;
             }
+            .paper-abstract .hero-figure {
+                margin: 20px 0;
+            }
+            
+            .paper-abstract .hero-figure img {
+                max-width: 100%;
+            }
         }
         
         /* 極小螢幕（小於 480px）的額外優化 */
@@ -590,6 +597,18 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
+        .paper-abstract .hero-figure {
+            text-align: center;
+            margin: 30px 0; /* 上下留白 */
+        }
+        
+        .paper-abstract .hero-figure img {
+            max-width: 100%; /* 在框內佔滿 */
+            height: auto;
+            border-radius: 8px; /* 加點圓角 */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 加點陰影讓圖片更立體 */
+        }
+
     </style>
 </head>
 <body>
@@ -637,8 +656,12 @@
                     <p class="tldr-text">
                         <strong>We built an automated examiner to test if full-duplex speech models can handle multi-turn conversations in different real-world scenarios.</strong>
                     </p>
+                    
+                    <figure class="hero-figure" style="margin: 30px 0;">
+                        <img src="images/framework_overview.jpeg" alt="Overview diagram of task instructions, WebRTC orchestrator, and metrics in Full-Duplex-Bench V2" loading="lazy">
+                    </figure>
         
-                    <h2>The Research Gap</h2>
+                    <h2>Research Gap</h2>
                     <p>
                         Most benchmarks only evaluate <strong>single-turn or scripted scenarios</strong>, missing the natural flow of multi-turn conversations. This leaves a critical gap: it's largely unknown if models can maintain <strong>consistency and context tracking</strong> across complex turns.
                     </p>
@@ -648,10 +671,6 @@
                         We introduce <strong>FDB-v2</strong>, a novel multi-turn evaluation framework featuring an <strong>automated examiner</strong> that interacts with systems in real-time. It mimics natural dialogue by <strong>asking follow-ups, interrupting, and adapting</strong> to responses. This achieves a balanced combination of <strong>naturalism and evaluation efficiency</strong>.
                     </p>
                 </section>
-
-                <figure class="hero-figure">
-                    <img src="images/framework_overview.jpeg" alt="Overview diagram of task instructions, WebRTC orchestrator, and metrics in Full-Duplex-Bench V2" loading="lazy">
-                </figure>
 
             </section>
             
