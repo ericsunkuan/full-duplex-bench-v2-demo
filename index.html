@@ -19,24 +19,25 @@
         } */
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.8;
-            color: #374151;
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%); /* Warm yellow gradient */
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%); /* 淺藍天空漸層 */
             padding: 20px;
         }
+
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px; /* More rounded */
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             overflow: hidden;
         }
         
         header {
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); /* Sunny yellow/orange */
-            color: #78350f; /* Dark brown text instead of white */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             padding: 60px 40px;
             text-align: center;
         }
@@ -48,11 +49,11 @@
         }
         
         h1 { 
-            font-size: 2.3em; 
+            font-size: 2.5em; 
             margin-bottom: 20px; 
-            font-weight: 700; /* Less heavy */
-            line-height: 1.3;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
+            font-weight: 800; 
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .subtitle {
             opacity: 0.95;
@@ -67,20 +68,14 @@
         .table-container { overflow-x: auto; margin-top: 20px; }
         
         .section-header {
-            background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%); /* Soft yellow */
-            color: #78350f;
-            padding: 20px 30px;
-            border-radius: 16px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
-            border: 2px solid #fde68a; /* Lighter border */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
-                
-        .section-header h2 { 
-            font-size: 1.8em; 
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
+        
+        .section-header h2 { font-size: 1.8em; margin-bottom: 8px; }
         
         .section-header p { opacity: 0.95; font-size: 0.95em; }
         
@@ -118,8 +113,9 @@
         tr:hover { background: #f8f9fa; }
         
         /* Add spacing between sample groups (cells with rowspan) */
-        td.model-name[rowspan="2"] {
-            border-top: 2px solid #e9ecef;
+        .model-name { 
+            font-weight: 600; 
+            color: #0284c7; /* 深藍色 */
         }
         
         /* audio { width: 100%; min-width: 200px; height: 40px; outline: none; } */
@@ -155,21 +151,15 @@
         .arrow-down::after { content: " ↓"; color: #6c757d; }
         
         footer {
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            padding: 40px;
+            background: #f8f9fa;
+            padding: 30px;
             text-align: center;
-            color: #78350f;
-            border-top: 3px solid #fbbf24;
+            color: #666;
+            border-top: 1px solid #dee2e6;
         }
         
-        footer a { 
-            color: #f59e0b;
-        }
-        
-        footer a:hover { 
-            color: #d97706;
-        }
-
+        footer a { color: #667eea; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
         .hero-figure {
             text-align: center; 
         }
@@ -179,12 +169,153 @@
         }
         
         @media (max-width: 768px) {
-            body { padding: 10px; }
-            header { padding: 40px 20px; }
-            h1 { font-size: 2em; }
-            .content { padding: 20px; }
-            table { font-size: 0.9em; }
-            .table-container { margin: 0 -20px; padding: 0 20px; }
+            body { 
+                padding: 10px; 
+            }
+            
+            header { 
+                padding: 30px 20px; 
+            }
+            
+            h1 { 
+                font-size: 1.6em; /* 縮小標題 */
+                line-height: 1.3;
+                margin-bottom: 15px;
+            }
+            
+            .authors {
+                font-size: 1em; /* 縮小作者名字 */
+                line-height: 1.4;
+            }
+            
+            .affiliations {
+                font-size: 0.9em;
+            }
+            
+            .header-links {
+                margin-top: 20px;
+            }
+            
+            .header-links a {
+                display: block; /* 讓按鈕垂直排列 */
+                margin: 10px auto;
+                max-width: 200px;
+                padding: 10px 20px;
+                font-size: 0.95em;
+            }
+            
+            .content { 
+                padding: 15px; 
+            }
+            
+            .section {
+                margin-bottom: 30px;
+            }
+            
+            .section-header {
+                padding: 15px 20px;
+                border-radius: 10px;
+            }
+            
+            .section-header h2 {
+                font-size: 1.4em;
+            }
+            
+            .section-header p {
+                font-size: 0.9em;
+                line-height: 1.5;
+            }
+            
+            /* 讓表格可以左右滑動 */
+            .table-container { 
+                margin: 0 -15px; 
+                padding: 0 15px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch; /* iOS 滑動更順暢 */
+            }
+            
+            table { 
+                font-size: 0.85em;
+                min-width: 600px; /* 確保表格有最小寬度 */
+            }
+            
+            th, td {
+                padding: 10px 8px;
+                font-size: 0.9em;
+            }
+            
+            /* 優化音頻播放器 */
+            audio {
+                height: 40px;
+                min-width: 180px;
+            }
+            
+            /* 優化 transcript 和 task prompt 盒子 */
+            .transcript-box,
+            .task-prompt-box {
+                font-size: 0.8em;
+                max-height: 150px;
+                margin-top: 6px;
+                padding: 8px;
+            }
+            
+            /* 優化圖片 */
+            .hero-figure img {
+                max-width: 95%;
+            }
+            
+            /* 優化 paper abstract */
+            .paper-abstract {
+                padding: 20px 20px;
+                margin: 20px auto;
+                font-size: 0.95rem;
+            }
+            
+            .paper-abstract h2 {
+                font-size: 1.2em;
+            }
+            
+            .tldr-title {
+                font-size: 1.3em;
+            }
+            
+            .tldr-text {
+                font-size: 1.05rem;
+            }
+            
+            /* 優化 footer */
+            footer {
+                padding: 20px 15px;
+                font-size: 0.9em;
+            }
+            
+            footer p {
+                margin: 10px 0;
+            }
+        }
+        
+        /* 極小螢幕（小於 480px）的額外優化 */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.4em;
+            }
+            
+            .authors {
+                font-size: 0.9em;
+            }
+            
+            .header-links a {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+            
+            table {
+                font-size: 0.8em;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+            }
         }
     
         /* Paper abstract block */
@@ -220,7 +351,7 @@
             text-align: center;
             font-size: 1.5em; /* 讓 "TL;DR" 更大 */
             font-weight: 700;
-            color: #f59e0b; /* 使用您的主題紫色 */
+            color: #0ea5e9; /* 使用您的主題紫色 */
             border-bottom: none; /* 移除底線 */
             margin-bottom: 15px;
         }
@@ -364,7 +495,20 @@
             font-size: 1.1em;
             font-weight: 500;
         }
-        
+        .header-links a {
+            color: #ffffff; /* 連結顏色改為白色 */
+            font-weight: 600; /* 加粗 */
+            text-decoration: underline; /* 保留底線，但樣式更乾淨 */
+            text-decoration-thickness: 1px; /* 底線粗細 */
+            text-underline-offset: 3px; /* 底線與文字的距離 */
+            opacity: 0.9; /* 輕微透明 */
+            margin: 0 10px; /* 連結間的距離 */
+            transition: opacity 0.2s ease;
+        }
+        .header-links a:hover {
+            opacity: 1; /* 滑鼠懸停時完全不透明 */
+            text-decoration-thickness: 2px; /* 底線加粗 */
+        }
         header {
             position: relative;
             overflow: hidden;
@@ -392,38 +536,22 @@
         /* Enhanced header links */
         .header-links a {
             display: inline-block;
-            color: #78350f;
+            color: #ffffff;
             font-weight: 600;
             text-decoration: none;
-            margin: 0 12px;
-            padding: 14px 28px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 25px; /* Pill shape */
-            border: 2px solid rgba(120, 53, 15, 0.2);
+            margin: 0 15px;
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
+        
         .header-links a:hover {
-            background: #ffffff;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-        th {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            padding: 16px;
-            color: #78350f;
-            font-weight: 600;
-            border-bottom: 2px solid #fbbf24;
-        }
-        
-        tr:hover { 
-            background: linear-gradient(to right, #fffbeb 0%, #ffffff 100%);
-        }
-        
-        .model-name { 
-            font-weight: 600; 
-            color: #f59e0b;
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
     </style>
 </head>
