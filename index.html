@@ -1367,7 +1367,7 @@
               var cellLabel = (cell.textContent || '').trim();
             
               // ➋ 先把文字清空，等等只塞 Task Prompt，不要顯示 "Sample N"
-              // cell.textContent = '';
+              cell.textContent = '';
             
               // ➌ 建立並插入 Task Prompt 容器
               var taskBox = document.createElement('div');
